@@ -13,7 +13,13 @@ describe 'catme', ->
     require('../src/catme')(@robot)
 
   it 'registers a respond listener', ->
-    expect(@robot.respond).to.have.been.calledWith(/hello/)
+    expect(@robot.respond).to.have.been.calledWith(/cat( me)?$/i)
 
-  it 'registers a hear listener', ->
-    expect(@robot.hear).to.have.been.calledWith(/orly/)
+  it 'registers a respond listener', ->
+    expect(@robot.respond).to.have.been.calledWith(/cat bomb( (\d+))?/i)
+
+  it 'registers a respond listener', ->
+    expect(@robot.respond).to.have.been.calledWith(/cat categories/i)
+
+  it 'registers a respond listener', ->
+    expect(@robot.respond).to.have.been.calledWith(/cat( me)? (with|in)( (\w+))?/i)
