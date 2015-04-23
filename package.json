@@ -1,7 +1,7 @@
 {
   "name": "hubot-catme",
   "description": "A hubot script that fetch random cat images",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "author": "Émile Filteau <emile.filteau@gmail.com>",
   "license": "MIT",
 
@@ -9,15 +9,16 @@
 
   "repository": {
     "type": "git",
-    "url": "git://github.com/hubot-scripts/hubot-catme.git"
+    "url": "git://github.com/Emile-Filteau/hubot-catme.git"
   },
 
   "bugs": {
-    "url": "https://github.com/hubot-scripts/hubot-catme/issues"
+    "url": "https://github.com/Emile-Filteau/hubot-catme/issues"
   },
 
   "dependencies": {
-    "coffee-script": "~1.6"
+    "coffee-script": "~1.6",
+    "xml2json": "0.4.0"
   },
 
   "devDependencies": {
