@@ -41,3 +41,8 @@ module.exports = (robot) ->
           msg.send $(body).find('url').text()
         else
           msg.send 'Enter a valid category (type "cat categories" for a list of valid categories)'
+          
+  robot.on 'catCall', (msg) ->
+    msg.http("http://thecatapi.com/api/images/get?format=xml")
+      .get() (err, res, body) ->
+        msg.send $(body).find('url').text()
