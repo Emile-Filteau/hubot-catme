@@ -17,25 +17,25 @@ $ = require 'cheerio'
 module.exports = (robot) ->
 
   robot.respond /cat( me)?$/i, (msg) ->
-    msg.http("http://thecatapi.com/api/images/get?format=xml")
+    msg.http("https://api.thecatapi.com/api/images/get?format=xml")
       .get() (err, res, body) ->
         msg.send $(body).find('url').text()
 
   robot.respond /cat bomb( (\d+))?/i, (msg) ->
     count = msg.match[2] || 5
     count = 100 if count > 100
-    msg.http("http://thecatapi.com/api/images/get?format=xml&results_per_page=" + count)
+    msg.http("https://api.thecatapi.com/api/images/get?format=xml&results_per_page=" + count)
       .get() (err, res, body) ->
         msg.send $(cat).find('url').text() for cat in $(body).find('image')
 
   robot.respond /cat categories/i, (msg) ->
-    msg.http("http://thecatapi.com/api/categories/list")
+    msg.http("https://api.thecatapi.com/api/categories/list")
       .get() (err, res, body) ->
         msg.send $(category).find('name').text() for category in $(body).find('category')
 
   robot.respond /cat( me)? (with|in)( (\w+))?/i, (msg) ->
     category = msg.match[3] || 'funny'
-    msg.http("http://thecatapi.com/api/images/get?format=xml&category="+category)
+    msg.http("https://api.thecatapi.com/api/images/get?format=xml&category="+category)
       .get() (err, res, body) ->
         if $(body).find('url').length
           msg.send $(body).find('url').text()
