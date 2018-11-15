@@ -33,8 +33,8 @@ module.exports = (robot) ->
       .get() (err, res, body) ->
         msg.send $(category).find('name').text() for category in $(body).find('category')
 
-  robot.respond /cat( me)? (with|in)( (\w+))?/i, (msg) ->
-    category = msg.match[3] || 'funny'
+  robot.respond /cat( me)?( (with|in))( (\w+))?/i, (msg) ->
+    category = (msg.match[4] || 'funny').trim();
     msg.http("https://api.thecatapi.com/api/images/get?format=xml&category="+category)
       .get() (err, res, body) ->
         if $(body).find('url').length
