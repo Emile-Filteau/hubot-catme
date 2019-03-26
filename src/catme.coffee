@@ -45,7 +45,7 @@ module.exports = (robot) ->
 
   robot.respond /(cat|dog)( me)?( (with|in))( (\w+))?/i, (msg) ->
     apiName = msg.match[1]
-    category = (msg.match[4] || 'funny').trim()
+    category = (msg.match[5] || 'funny').trim()
     msg.http("https://api.the" +
       apiName +
       "api.com/api/images/get?format=xml&category="+category)
